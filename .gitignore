@@ -5,26 +5,26 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/front-end-reactjs/node_modules
-/front-end-reactjs/.pnp
-/front-end-reactjs.pnp.js
+/frontend-reactjs/node_modules
+/frontend-reactjs/.pnp
+/frontend-reactjs.pnp.js
 
 # testing
-/front-end-reactjs/coverage
+/frontend-reactjs/coverage
 
 # production
-/front-end-reactjs/build
+/frontend-reactjs/build
 
 # misc
-/front-end-reactjs.DS_Store
-/front-end-reactjs.env.local
-/front-end-reactjs.env.development.local
-/front-end-reactjs.env.test.local
-/front-end-reactjs.env.production.local
+/frontend-reactjs.DS_Store
+/frontend-reactjs.env.local
+/frontend-reactjs.env.development.local
+/frontend-reactjs.env.test.local
+/frontend-reactjs.env.production.local
 
-/front-end-reactjsnpm-debug.log*
-/front-end-reactjsyarn-debug.log*
-/front-end-reactjsyarn-error.log*
+/frontend-reactjsnpm-debug.log*
+/frontend-reactjsyarn-debug.log*
+/frontend-reactjsyarn-error.log*
 
 ### Django ###
 *.log
