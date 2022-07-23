@@ -1,16 +1,37 @@
 version: "1.0"
 services:
+  # db:
+  #   image: mysql:latest
+  #   restart: always
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: Abc@12345
+  #     MYSQL_USER: root
+  #     MYSQL_PASSWORD: Abc@12345
+  #     MYSQL_DATABASE: todo_app
+  #   ports:
+  #     - "3306:3306"
+  #   expose:
+  #     - "3306"
+  #   volumes:
+  #     - ./db:/var/lib/mysql
+  #   networks:
+  #     - todo-net
+
   backend:
     restart: always
     container_name: backend
-    command : python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
     build:
       context: ./backend-django/
       dockerfile: Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - ./backend-django:/app/backend
     ports:
       - "8000:8000"
     networks:
-      - db-net
+      - todo-net
 
   frontend:
     restart: always
@@ -19,14 +40,16 @@ services:
     build:
       context: ./frontend-reactjs/
       dockerfile: Dockerfile
+    volumes:
+      - ./frontend-reactjs:/app/frontend
     ports:
       - "3000:3000"
     stdin_open: true
     depends_on:
       - backend
     networks:
-      - db-net
+      - todo-net
 
 networks:
-  db-net:
+  todo-net:
     driver: bridge
